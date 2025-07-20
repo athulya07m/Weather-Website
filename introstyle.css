@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Animated gradient background */
+.intro-container {
+  background: linear-gradient(-45deg, #141E30, #243B55, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Particles container behind content */
+#particles-js {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+/* Center content, with fade in & slide up */
+.content {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  animation: fadeInUp 1.8s ease forwards;
+  opacity: 0;
+}
+
+/* Fancy title font with glowing effect */
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+.title span {
+  color: #ffd700;
+}
+
+/* Subtitle styling */
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* Elegant glass button */
+.enter-btn {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.3s;
+}
+.enter-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Fade in & slide up effect */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+/* Animated gradient keyframes */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

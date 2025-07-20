@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body {
+  height:100%;
+  font-family:'Poppins', sans-serif;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* Elegant animated gradient background */
+.bg-weather {
+  background: linear-gradient(-45deg, #141E30, #243B55, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+  0% { background-position:0% 50%; }
+  50% { background-position:100% 50%; }
+  100% { background-position:0% 50%; }
+}
+
+/* Sparkle title effect */
+.sparkle {
+  font-family:'Pacifico', cursive;
+  font-size:2.2rem;
+  margin:20px 0;
+  text-shadow:0 0 10px rgba(255,255,255,0.6);
+  animation: sparkleAnim 2s infinite alternate;
+}
+@keyframes sparkleAnim {
+  from { text-shadow:0 0 5px #fff; }
+  to { text-shadow:0 0 20px #fff; }
+}
+
+/* Splash screen */
+#splash {
+  position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.7);
+  display:flex; justify-content:center; align-items:center;
+  z-index:999;
+  animation: fadeOut 2s forwards 2.5s;
+}
+@keyframes fadeOut { to { opacity:0; visibility:hidden; } }
+
+/* Glassmorphism cards */
+.glass-box {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius:15px;
+  padding:20px;
+  margin:10px;
+  text-align:center;
+  box-shadow:0 8px 32px rgba(0,0,0,0.25);
+  transition:transform 0.3s, background 0.3s;
+}
+.glass-box:hover {
+  transform:translateY(-5px);
+  background: rgba(255,255,255,0.25);
+}
+
+/* Input & button styles */
+input, button {
+  width:90%;
+  padding:10px;
+  margin:8px 0;
+  border:none;
+  border-radius:8px;
+  outline:none;
+  font-size:1rem;
+}
+button {
+  background: rgba(255,255,255,0.2);
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s;
+}
+button:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* Links & buttons layout */
+.link-btn {
+  text-decoration:none;
+  color:#fff;
+  display:block;
+  font-weight:600;
+}
+
+/* Dashboard container */
+.dashboard {
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  text-align:center;
+}
+
+/* Flex rows */
+.box-row { display:flex; justify-content:center; flex-wrap:wrap; }
+
+/* Fade-in & fade-up animations */
+.fade-in { animation: fadeIn 2s forwards; }
+.fade-up { animation: fadeUp 2s forwards; opacity:0; }
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+@keyframes fadeUp {
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Footer tip */
+.tip { margin:20px; font-size:0.9rem; opacity:0.8; }
+
+/* Responsive adjustments */
+@media(max-width:768px) {
+  .glass-box { width:80%; }
+  .sparkle { font-size:1.8rem; }
+}

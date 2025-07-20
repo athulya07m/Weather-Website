@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome - Weather App</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="introstyle.css" />
+</head>
+<body>
+  <div class="intro-container">
+    <div class="content">
+      <h1 class="title">🌤️ Welcome to <span>Weather App</span></h1>
+      <p class="subtitle">Your elegant weather companion</p>
+      <a href="index.html" class="enter-btn">Enter App</a>
+    </div>
+    <div id="particles-js"></div>
+  </div>
+
+<script src="particles.min.js"></script>
+<script>
+/* particles.js config */
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 60, density: { enable: true, value_area: 800 } },
+    color: { value: "#ffffff" },
+    opacity: { value: 0.3 },
+    size: { value: 2 },
+    move: { enable: true, speed: 0.6 }
+  }
+});
+</script>
+</body>
+</html>

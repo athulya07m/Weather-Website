@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Types - Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .dashboard {
+      width: 90%;
+      max-width: 1000px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.5s ease;
+    }
+    .sparkle {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #ffe57f;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+    .box-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .glass-box {
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px;
+      padding: 20px;
+      flex: 1 1 200px;
+      min-width: 200px;
+      max-width: 300px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .glass-box:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.25);
+    }
+    .link-btn {
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
+      display: block;
+      font-weight: 600;
+    }
+    .tip, footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+    button {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .dark {
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1 id="app-title" class="sparkle">Weather Types & Explanations 🌍</h1>
+
+    <div class="box-row">
+      <div class="glass-box">
+        <h2>☀️ Sunny</h2>
+        <p>Clear sky with lots of sunlight. Often means dry, warm weather and bright days.</p>
+      </div>
+      <div class="glass-box">
+        <h2>🌧️ Rainy</h2>
+        <p>Clouds produce rain, sometimes with drizzle or heavy showers. Brings fresh smell and cooler air.</p>
+      </div>
+    </div>
+
+    <div class="box-row">
+      <div class="glass-box">
+        <h2>❄️ Snowy</h2>
+        <p>Snowflakes falling from the sky, covering the ground in white. Usually happens in cold regions or winter.</p>
+      </div>
+      <div class="glass-box">
+        <h2>⛈️ Thunderstorm</h2>
+        <p>Storms with lightning and thunder. Often comes with heavy rain, gusty winds, and dramatic sky.</p>
+      </div>
+    </div>
+
+    <div class="box-row">
+      <div class="glass-box">
+        <h2>🌫️ Fog</h2>
+        <p>Thick mist near the ground, making visibility low. Happens often in mornings or coastal areas.</p>
+      </div>
+      <div class="glass-box">
+        <h2>☁️ Cloudy</h2>
+        <p>Sky is full of clouds, blocking some sunlight. Often feels cooler and can lead to rain.</p>
+      </div>
+    </div>
+
+    <div class="box-row">
+      <div class="glass-box">
+        <h2>🌬️ Windy</h2>
+        <p>Fast-moving air. Can feel refreshing or strong, and can carry dust, pollen, or sea breeze.</p>
+      </div>
+    </div>
+
+    <div class="box-row links">
+      <a href="index.html" class="glass-box link-btn">← Back</a>
+      <a href="details.html" class="glass-box link-btn">📄 About</a>
+      <a href="contact.html" class="glass-box link-btn">✉️ Contact</a>
+    </div>
+    <div class="box-row links">
+      <button id="dark-toggle" class="glass-box">🌙 Toggle Dark Mode</button>
+    </div>
+    <div class="box-row links">
+      <button class="glass-box lang-btn" data-lang="en">🇬🇧 EN</button>
+      <button class="glass-box lang-btn" data-lang="fr">🇫🇷 FR</button>
+      <button class="glass-box lang-btn" data-lang="hi">🇮🇳 HI</button>
+    </div>
+
+    <footer class="tip" id="tip">© <span id="year"></span> Weather App</footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('dark-toggle').addEventListener('click', () =>
+      document.body.classList.toggle('dark')
+    );
+    const translations = {
+      en: { title: "Weather Types & Explanations 🌍", tip: "Learn more about weather!" },
+      fr: { title: "Types de Météo & Explications 🌍", tip: "En savoir plus sur la météo!" },
+      hi: { title: "मौसम के प्रकार 🌍", tip: "मौसम के बारे में जानें!" }
+    };
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.getElementById('app-title').textContent = translations[lang].title;
+        document.getElementById('tip').textContent = translations[lang].tip;
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #6DD5FA, #2980B9);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .dashboard {
+      width: 90%;
+      max-width: 1000px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 1.5s ease;
+    }
+    .sparkle {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #ffe57f;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+    .box-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .glass-box {
+      background: rgba(255,255,255,0.15);
+      border-radius: 15px;
+      padding: 20px;
+      flex: 1 1 220px;
+      min-width: 220px;
+      max-width: 300px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .glass-box:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.25);
+    }
+    .link-btn {
+      text-decoration: none;
+      color: #fff;
+      text-align: center;
+      display: block;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .tip, footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+    button {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    button:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .dark {
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1 id="app-title" class="sparkle">About This App ☁️</h1>
+
+    <a href="weathertypes.html" class="glass-box link-btn">🌤️ Weather Types</a>
+
+    <div class="box-row">
+      <div class="glass-box">
+        <h2>🌦️ What does it do?</h2>
+        <p>Shows live weather, forecast, detects your location, displays tips, and has animated UI.</p>
+      </div>
+      <div class="glass-box">
+        <h2>🛠️ How do we approach?</h2>
+        <ul>
+          <li>OpenWeatherMap API</li>
+          <li>Geolocation API</li>
+          <li>Chart.js & JavaScript</li>
+          <li>Animated backgrounds</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box-row">
+      <div class="glass-box">
+        <h2>📊 Tech Stack</h2>
+        <p>HTML, CSS, JavaScript, Chart.js, OpenWeatherMap</p>
+      </div>
+      <div class="glass-box">
+        <h2>✨ Credits</h2>
+        <p>Built with ❤️ by [Athulya Ak❤️]</p>
+      </div>
+    </div>
+
+    <div class="box-row links">
+      <a href="index.html" class="glass-box link-btn">← Back</a>
+      <a href="contact.html" class="glass-box link-btn">✉️ Contact</a>
+    </div>
+    <div class="box-row links">
+      <button id="dark-toggle" class="glass-box">🌙 Toggle Dark Mode</button>
+    </div>
+    <div class="box-row links">
+      <button class="glass-box lang-btn" data-lang="en">🇬🇧 EN</button>
+      <button class="glass-box lang-btn" data-lang="fr">🇫🇷 FR</button>
+      <button class="glass-box lang-btn" data-lang="hi">🇮🇳 HI</button>
+    </div>
+
+    <footer class="tip" id="tip">© <span id="year"></span> Weather App</footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('dark-toggle').addEventListener('click', () =>
+      document.body.classList.toggle('dark')
+    );
+    const translations = {
+      en: { title: "About This App ☁️", tip: "Thanks for visiting!" },
+      fr: { title: "À propos ☁️", tip: "Merci de votre visite!" },
+      hi: { title: "ऐप के बारे में ☁️", tip: "आपके आने का धन्यवाद!" }
+    };
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        document.getElementById('app-title').textContent = translations[lang].title;
+        document.getElementById('tip').textContent = translations[lang].tip;
+      });
+    });
+  </script>
+</body>
+</html>

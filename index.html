@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-weather">
+  <div id="splash"><h1 class="fade-in">🌦️ Welcome to Weather App</h1></div>
+  <div class="dashboard hidden" id="main-container">
+    <h1 id="app-title" class="sparkle">Weather App ☀️</h1>
+    <div id="loading-message" class="fade-in">Detecting your location...</div>
+
+    <div class="box-row">
+      <div class="glass-box fade-up">
+        <input type="text" id="city-input" placeholder="Enter city name" />
+        <button id="get-weather-btn">Get Weather</button>
+      </div>
+    </div>
+
+    <div class="box-row">
+      <div class="glass-box hidden fade-up" id="weather-info">
+        <div class="weather-header">
+          <div id="weather-icon">🌤️</div>
+          <div id="city-name"></div>
+        </div>
+        <div id="local-time"></div>
+        <p id="temperature"></p>
+        <p id="feels-like"></p>
+        <p id="humidity"></p>
+        <p id="pressure"></p>
+        <p id="description"></p>
+        <p id="wind-speed"></p>
+        <p id="sunrise"></p>
+        <p id="sunset"></p>
+        <p id="tip" class="tip">Have a nice day!</p>
+      </div>
+    </div>
+
+    <div class="box-row">
+      <div class="glass-box hidden fade-up" id="chart-box">
+        <canvas id="forecastChart"></canvas>
+      </div>
+    </div>
+
+    <div class="box-row links fade-up">
+      <a href="weathertypes.html" class="glass-box link-btn">🌤️ Weather Types</a>
+      <a href="details.html" class="glass-box link-btn">📄 About</a>
+      <a href="contact.html" class="glass-box link-btn">✉️ Contact</a>
+    </div>
+    <div class="box-row links fade-up">
+      <button id="dark-toggle" class="glass-box">🌙 Toggle Dark Mode</button>
+    </div>
+    <div class="box-row links fade-up">
+      <button class="glass-box lang-btn" data-lang="en">🇬🇧 EN</button>
+      <button class="glass-box lang-btn" data-lang="fr">🇫🇷 FR</button>
+      <button class="glass-box lang-btn" data-lang="hi">🇮🇳 HI</button>
+    </div>
+
+    <footer class="tip fade-in">© <span id="year"></span> Weather App</footer>
+    <audio id="bg-audio" loop></audio>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
